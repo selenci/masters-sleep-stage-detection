@@ -15,11 +15,20 @@ def cut_beginning_rows(file_name):
     return io.StringIO(output)
 
 
-FILE_BASE_NAME = 'n5'
+FILE_BASE_NAME = 'brux2'
 # --- Load EDF ---
 edf_file = f"../Data/cap-sleep-database-1.0.0/{FILE_BASE_NAME}.edf"
 raw = mne.io.read_raw_edf(edf_file, preload=True)
 print(f"Sampling frequency: {raw.info['sfreq']} Hz")
+
+# recording start (datetime object)
+start_time = raw.info['meas_date']
+# duration in seconds
+duration = raw.times[-1]
+# recording end
+end_time = start_time + timedelta(seconds=duration)
+print("Recording started at:", start_time)
+print("Recording ended at:", end_time)
 
 channels_of_interest = ['Fp2-F4', 'F3-C3', 'C4-A1', 'ROC-LOC']
 raw.pick(channels_of_interest)

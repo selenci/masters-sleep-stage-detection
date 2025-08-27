@@ -8,7 +8,7 @@ raw._data /= 1e6
 
 sfreq = raw.info['sfreq']
 print(f"Sampling frequency: {sfreq} Hz")
-
+print(f"Available channels: {raw.ch_names}")
 pairs = [
     ('F4', 'A1'),
     ('C4', 'A1'),
