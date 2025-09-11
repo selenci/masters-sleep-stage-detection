@@ -5,7 +5,7 @@
 #SBATCH --gres=gpu:1                    # Number of GPUs
 #SBATCH --cpus-per-task=8               # CPU cores per task
 #SBATCH --mem=32G                       # Memory per node
-#SBATCH --time=04:00:00                 # Max runtime (HH:MM:SS)
+#SBATCH --time=06:00:00                 # Max runtime (HH:MM:SS)
 
 eval "$(mamba shell hook --shell=bash)"
 mamba activate Magistrska

@@ -10,7 +10,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import warnings
 from focal_loss import FocalLoss
-from torch.optim.lr_scheduler import ReduceLROnPlateau
+from torch.optim.lr_scheduler import CosineAnnealingLR
 
 
 # Set device for computation
@@ -18,7 +18,8 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
 class EEGDataset(Dataset):
-    def __init__(self, patients, data_dir, patient_to_id):
+    def __init__(self, patients, data_dir, patient_to_id, is_train=False):
+        self.is_train = is_train
         self.files = []
         self.labels = []
         self.patient_ids = []
@@ -111,11 +112,14 @@ class EEGDataset(Dataset):
             x_spec.append(x_spec_i)
         x_spec = np.stack(x_spec, axis=0)
 
+
+        # TODO make this dynamic
+        num_total_channels = 6
         windows, n_channels, n_freq, n_times = x_spec.shape
 
-        mask = np.zeros(6, dtype=np.float32)
-        if n_channels < 6:
-            pad = np.zeros((windows, 6 - n_channels, n_freq, n_times))
+        mask = np.zeros(num_total_channels, dtype=np.float32)
+        if n_channels < num_total_channels:
+            pad = np.zeros((windows, num_total_channels - n_channels, n_freq, n_times))
             x_spec = np.concatenate([x_spec, pad], axis=1) # Pad along channel dimension
             mask[:n_channels] = 1.0
         else:
@@ -126,6 +130,11 @@ class EEGDataset(Dataset):
         y = torch.tensor(label, dtype=torch.long)
         mask = torch.tensor(mask, dtype=torch.bool)
 
+        if self.is_train:
+            channel_indices = torch.randperm(num_total_channels)
+            x = x[:, channel_indices, :, :]
+            mask = mask[channel_indices]
+
         return x, y, patient_id, mask
 
 
@@ -133,18 +142,16 @@ class CnnEmbed(nn.Module):
     """Split EEG into fixed-size patches and embed them."""
     def __init__(self, emb_size=64, num_channels=6, height=50, width=122, dropout_prob=0.5):
         super().__init__()
+        print(f"Initializing CnnEmbed with emb_size={emb_size}, num_channels={num_channels}, height={height}, width={width}, dropout_prob={dropout_prob}", flush=True)
         self.emb_size = emb_size
 
         self.cnn_feature_extractor = nn.Sequential(
             nn.Conv2d(num_channels, 16, kernel_size=(3, 3), stride=(2, 2), padding=1),
             nn.ReLU(),
-            nn.BatchNorm2d(16),
-            nn.Conv2d(16, 32, kernel_size=(3, 3), stride=(2, 2), padding=1),
+            nn.GroupNorm(4, 16),
+            nn.Conv2d(16, emb_size, kernel_size=(3, 3), stride=(2, 2), padding=1),
             nn.ReLU(),
-            nn.BatchNorm2d(32),
-            nn.Conv2d(32, emb_size, kernel_size=(3, 3), stride=(2, 2), padding=1),
-            nn.ReLU(),
-            nn.BatchNorm2d(emb_size),
+            nn.GroupNorm(8, emb_size),
         )
 
         with torch.no_grad():
@@ -167,26 +174,34 @@ class CnnEmbed(nn.Module):
 # Transformer-based model
 # -----------------------------
 class EEGTransformer(nn.Module):
-    def __init__(self, emb_size=64, nhead=4, num_layers=3, num_classes=5, max_patients=30, num_channels=6, height=50, width=122, dropout_prob=0.5):
+    def __init__(self, emb_size=64, nhead=4, num_layers=3, num_classes=5, num_channels=6, height=50, width=122, dropout_prob=0.65):
         super().__init__()
+        print(f"Initializing EEGTransformer with emb_size={emb_size}, nhead={nhead}, num_layers={num_layers}, num_classes={num_classes}, num_channels={num_channels}, height={height}, width={width}, dropout_prob={dropout_prob}", flush=True)
+
         self.emb_size = emb_size
 
         self.cnn_embed = CnnEmbed(
             emb_size=emb_size,
             num_channels=num_channels,
             height=height,
+            dropout_prob=dropout_prob,
             width=width
         )
 
-        self.patient_emb = nn.Embedding(max_patients + 1, emb_size)
+        self.pos_emb = nn.Embedding(10, emb_size)
 
         # Standard Transformer Encoder
         encoder_layer = nn.TransformerEncoderLayer(d_model=emb_size, nhead=nhead, batch_first=True)
         self.transformer = nn.TransformerEncoder(encoder_layer, num_layers=num_layers)
-        self.dropout = nn.Dropout(p=dropout_prob)
+        self.attn_pool = nn.Linear(emb_size, 1)
 
         # Classification head
-        self.classification_head = nn.Linear(emb_size, num_classes)
+        self.classification_head = nn.Sequential(
+            nn.Linear(emb_size, emb_size),
+            nn.ReLU(),
+            nn.Dropout(dropout_prob),
+            nn.Linear(emb_size, num_classes)
+        )
 
     def forward(self, segments, patient_ids, masks):
         # segments: (batch, 6, 15360)
@@ -196,17 +211,21 @@ class EEGTransformer(nn.Module):
         segments_reshaped = segments.view(batch_size * window_size, num_channels, height, width)
         tokens = self.cnn_embed(segments_reshaped)
         tokens = tokens.view(batch_size, window_size, self.emb_size)
-        # 2. Add patient embedding (broadcast to all tokens)
-        patient_emb = self.patient_emb(patient_ids).unsqueeze(1)  # (batch ,emb_size)
-        tokens = tokens + patient_emb
+
+        # 2. Add positional embedding
+        positions = torch.arange(window_size, device=segments.device)
+        pos_emb = self.pos_emb(positions).unsqueeze(0)  # (1, window_size, emb_size)
+        tokens = tokens + pos_emb
 
         # 3. Transformer
         # TODO DODAJ PADDING MASK , src_key_padding_mask=~masks
         transformer_out = self.transformer(tokens)  # (batch, 768, emb_size)
 
-        # 4. Mean pool across tokens
-        pooled = transformer_out.mean(dim=1)  # (batch, emb_size)
-        pooled = self.dropout(pooled)
+        # 4. Mean + learned pool across tokens
+        weights = torch.softmax(self.attn_pool(transformer_out), dim=1)
+        pooled_mean = transformer_out.mean(dim=1)
+        pooled_attn = (transformer_out * weights).sum(dim=1)
+        pooled = 0.5 * pooled_mean + 0.5 * pooled_attn
 
         # 5. Classify
         logits = self.classification_head(pooled)
@@ -249,58 +268,55 @@ def evaluate_and_print_cm(model, data_loader, device, class_names):
 
 
 # --- Hyperparameters and Configuration ---
-DATA_DIR = "../Data/PROCESSED_CAP"
+DATA_DIR = "../Data/PROCESSED_CAP_2"
 TRAIN_PATIENTS = [
     'brux2',
-    'ins1', 'ins2', 'ins3', 'ins4', 'ins5',
+    'ins1', 'ins2', 'ins3', 'ins4', 'ins5', 'ins6',
     'n1', 'n2', 'n5', 'n10',
     'narco1', 'narco3',
-    'nfle1', 'nfle2', 'nfle3', 'nfle4', 'nfle5', 'nfle7', 'nfle8',
-    'nfle12', 'nfle13', 'nfle14', 'nfle15', 'nfle16', 'nfle17',
-    'nfle21', 'nfle22', 'nfle28', 'nfle29', 'nfle32',
-    'plm1', 'plm2', 'plm3', 'plm4', 'plm5',
-    'rbd1', 'rbd2', 'rbd3', 'rbd4', 'rbd5', 'rbd6', 'rbd7', 'rbd8',
-    'rbd10', 'rbd11', 'rbd12', 'rbd15', 'rbd16',
-    'sdb1', 'sdb2',
+    'nfle1', 'nfle2', 'nfle3', 'nfle4', 'nfle5', 'nfle6', 'nfle7', 'nfle8', 'nfle9', 'nfle10', 'nfle11', 'nfle12', 'nfle13', 'nfle14', 'nfle15', 'nfle16', 'nfle17', 'nfle18', 'nfle19', 'nfle20', 'nfle21', 'nfle22', 'nfle23', 'nfle24', 'nfle25', 'nfle28', 'nfle29', 'nfle30', 'nfle31', 'nfle32', 'nfle33',
+    'plm1', 'plm2', 'plm3', 'plm4', 'plm5', 'plm6', 'plm7',
+    'rbd1', 'rbd2', 'rbd3', 'rbd4', 'rbd5', 'rbd6', 'rbd7', 'rbd8', 'rbd9', 'rbd10', 'rbd11', 'rbd12', 'rbd13', 'rbd15', 'rbd16', 'rbd17',
+    'sdb1', 'sdb2', 'sdb3',
 ]
 
 VALIDATION_PATIENTS = [
-    'ins6', 'ins7',
+    'ins7', 'ins8',
     'n3',
     'narco4',
-    'nfle9', 'nfle18', 'nfle24', 'nfle30', 'nfle34',
-    'plm6', 'plm7', 'plm8',
-    'rbd9', 'rbd13', 'rbd17', 'rbd18',
-    'sdb3',
+    'nfle26', 'nfle34', 'nfle35', 'nfle36', 'nfle37',
+    'plm8', 'plm9',
+    'rbd18', 'rbd19', 'rbd20',
+    'sdb4',
 ]
 
 TEST_PATIENTS = [
-    'ins8', 'ins9',
+    'ins9',
     'n11',
     'narco5',
-    'nfle35', 'nfle36', 'nfle37', 'nfle38', 'nfle39', 'nfle40',
-    'plm9', 'plm10',
-    'rbd19', 'rbd20', 'rbd21', 'rbd22',
-    'sdb4',
+    'nfle38', 'nfle39', 'nfle40',
+    'plm10',
+    'rbd21', 'rbd22',
 ]
 
 
 BATCH_SIZE = 16
-LEARNING_RATE = 0.0001
-WEIGHT_DECAY = 1e-4
-EPOCHS = 50
-EMB_SIZE = 64
+LEARNING_RATE = 0.00005
+WEIGHT_DECAY = 1e-3
+EPOCHS = 15
+EMB_SIZE = 32
 NUM_CLASSES = 5
+print(f"Using EMB_SIZE={EMB_SIZE}, BATCH_SIZE={BATCH_SIZE}, LEARNING_RATE={LEARNING_RATE}, WEIGHT_DECAY={WEIGHT_DECAY}, EPOCHS={EPOCHS}", flush=True)
 
 all_patients = sorted(list(set(TRAIN_PATIENTS + VALIDATION_PATIENTS + TEST_PATIENTS)))
 PATIENT_TO_ID = {patient_name: i for i, patient_name in enumerate(all_patients)}
-MAX_PATIENTS = len(all_patients)
 
 # --- Dataset and DataLoader ---
 train_dataset = EEGDataset(
     patients=TRAIN_PATIENTS,
     data_dir=DATA_DIR,
-    patient_to_id=PATIENT_TO_ID
+    patient_to_id=PATIENT_TO_ID,
+    is_train=True
 )
 train_mean, train_std = train_dataset.get_mean_std()
 
@@ -329,7 +345,6 @@ test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False) # N
 model = EEGTransformer(
     emb_size=EMB_SIZE,
     num_classes=NUM_CLASSES,
-    max_patients=MAX_PATIENTS,
     num_channels=6,
     height=height,
     width=width
@@ -337,14 +352,14 @@ model = EEGTransformer(
 
 criterion = FocalLoss(task_type='multi-class', alpha=None, gamma=2.0, reduction='mean', num_classes=NUM_CLASSES)
 optimizer = torch.optim.Adam(model.parameters(), lr=LEARNING_RATE, weight_decay=WEIGHT_DECAY)
-scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=2, verbose=True)
+scheduler = CosineAnnealingLR(optimizer, T_max=EPOCHS, eta_min=1e-6)
 
 # --- Training Loop ---
 print("Starting training...")
 
 # Check if the data directory and training data exist
 
-PATIENCE = 10
+PATIENCE = 4
 current_patience = 0
 best_val_loss = float('inf')
 best_epoch = 0
@@ -376,8 +391,15 @@ for epoch in range(EPOCHS):
             total_val_loss += loss.item()
     
     avg_val_loss = total_val_loss / len(validation_loader)
-    scheduler.step(avg_val_loss)
-    print(f"Epoch [{epoch+1}/{EPOCHS}], Train Loss: {avg_train_loss:.4f}, Validation Loss: {avg_val_loss:.4f}", flush=True)
+    print(f"\nEpoch [{epoch+1}/{EPOCHS}]")
+    print(f"Train Loss: {avg_train_loss:.4f}, Validation Loss: {avg_val_loss:.4f}")
+    print(f"Scheduler stepping with val_loss={avg_val_loss:.4f}, best so far={best_val_loss:.4f}", flush=True)
+    
+    scheduler.step()
+
+    # Show current LR
+    for pg in optimizer.param_groups:
+        print(f"Current LR: {pg['lr']}")
 
     # Save the best model
     if avg_val_loss < best_val_loss:
