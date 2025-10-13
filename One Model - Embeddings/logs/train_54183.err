@@ -1,0 +1,688 @@
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/brux2/0392-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/ins1/0199-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/ins1/0210-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/ins4/0653-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/n1/0495-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/narco1/0306-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/narco3/0987-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle1/0173-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle2/0366-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle7/0640-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle7/0689-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle9/0794-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle10/0171-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle10/0317-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle10/0502-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle10/0509-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle10/0554-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle14/0109-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle14/0522-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle14/0649-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle14/0662-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle15/0151-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle15/0568-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle16/0308-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle17/0734-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle19/0582-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle20/0719-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle21/0134-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle21/0317-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle21/0394-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle22/0157-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle23/0124-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle23/0180-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle25/0136-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle28/0763-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle29/0592-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle31/0337-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle32/0400-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle32/0525-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle32/0620-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle33/0295-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/rbd11/0425-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/rbd12/0531-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/sdb2/0492-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0120-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0121-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0122-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0123-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0124-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0125-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0126-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0127-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0128-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0129-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0130-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0131-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0132-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0133-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0134-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0135-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0136-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0137-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0138-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0139-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0260-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0261-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0262-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0263-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0264-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0265-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0266-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0267-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0268-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0269-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0270-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0271-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0272-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0273-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0274-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0275-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0276-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0277-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0278-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0279-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0280-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0281-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0282-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0283-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0284-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0285-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0286-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0287-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0288-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/05/0289-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0080-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0081-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0082-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0083-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0084-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0085-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0086-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0087-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0088-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0089-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0090-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0091-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0092-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0093-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0094-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0095-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0096-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0097-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0098-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0099-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0100-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0101-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0102-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0103-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0104-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0105-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0106-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0107-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0108-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0109-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0110-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0111-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0112-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0113-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0114-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0115-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0116-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0117-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0118-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0119-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0120-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0121-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0122-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0123-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0124-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0125-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0126-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0127-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0128-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0129-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0130-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0131-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0132-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0133-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0134-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0135-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0136-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0137-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0138-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notinclude' in file ../Data/PROCESSED_HFO_2/06/0139-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0100-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0101-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0102-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0103-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0104-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0105-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0106-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0107-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0108-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0109-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0110-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0111-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0112-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0113-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0114-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0115-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0116-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0117-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0118-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0119-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0160-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0161-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0162-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0163-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0164-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0165-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0166-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0167-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0168-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0169-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0170-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0171-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0172-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0173-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0174-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0175-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0176-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0177-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0178-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0179-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0180-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0181-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0182-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0183-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0184-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0185-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0186-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0187-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0188-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0189-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0190-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0191-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0192-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0193-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0194-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0195-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0196-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0197-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0198-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0199-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0200-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0201-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0202-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0203-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0204-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0205-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0206-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0207-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0208-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/07/0209-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0160-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0161-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0162-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0163-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0164-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0165-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0166-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0167-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0168-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0169-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0170-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0171-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0172-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0173-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0174-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0175-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0176-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0177-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0178-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0179-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0180-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0181-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0182-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0183-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0184-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0185-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0186-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0187-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0188-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0189-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0190-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0191-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0192-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0193-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0194-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0195-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0196-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0197-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0198-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0199-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0200-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0201-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0202-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0203-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0204-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0205-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0206-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0207-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0208-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/09/0209-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0120-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0121-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0122-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0123-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0124-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0125-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0126-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0127-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0128-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0129-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0190-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0191-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0192-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0193-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0194-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0195-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0196-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0197-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0198-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0199-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0200-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0201-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0202-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0203-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0204-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0205-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0206-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0207-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0208-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0209-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0210-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0211-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0212-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0213-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0214-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0215-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0216-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0217-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0218-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'notanal' in file ../Data/PROCESSED_HFO_2/11/0219-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/narco4/0484-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/narco4/0758-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/narco4/0989-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle36/0496-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle36/0926-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/plm8/0419-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/plm8/0556-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/plm9/0646-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/n11/0572-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/narco5/0626-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle38/0044-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle38/0101-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle38/0448-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle39/0776-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle39/0868-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle40/0296-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle40/0387-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/nfle40/0513-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'MT' in file ../Data/PROCESSED_CAP_3/rbd21/0070-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/30/0070-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/30/0071-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/30/0072-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/30/0073-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/30/0074-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/30/0075-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/30/0076-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/30/0077-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/30/0078-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:69: UserWarning: Unknown label 'Diff' in file ../Data/PROCESSED_HFO_2/30/0079-stage.txt. Skipping this file.
+  warnings.warn(f"Unknown label '{label_str}' in file {label_path}. Skipping this file.")
+/shared/home/matej.klancar/masters-sleep-stage-detection/One Model - Embeddings/train.py:487: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(model_name))

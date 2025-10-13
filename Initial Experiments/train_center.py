@@ -192,7 +192,15 @@ class EEGTransformer(nn.Module):
 
         self.emb_size = emb_size
 
-        self.cnn_embed = CnnEmbed(
+        self.cnn_embed_adult = CnnEmbed(
+            emb_size=emb_size,
+            num_channels=num_channels,
+            height=height,
+            dropout_prob=dropout_prob,
+            width=width
+        )
+
+        self.cnn_embed_pediatric = CnnEmbed(
             emb_size=emb_size,
             num_channels=num_channels,
             height=height,
@@ -201,6 +209,7 @@ class EEGTransformer(nn.Module):
         )
 
         self.pos_emb = nn.Embedding(10, emb_size)
+        self.group_emb = nn.Embedding(2, emb_size)
 
         # Standard Transformer Encoder
         encoder_layer = nn.TransformerEncoderLayer(d_model=emb_size, nhead=nhead, batch_first=True)
@@ -215,19 +224,34 @@ class EEGTransformer(nn.Module):
             nn.Linear(emb_size, num_classes)
         )
 
-    def forward(self, segments, masks):
+    def forward(self, segments, masks, groups):
         # segments: (batch, 6, 15360)
         batch_size, window_size, num_channels, height, width = segments.shape
 
         # 1. Patch embedding
         segments_reshaped = segments.view(batch_size * window_size, num_channels, height, width)
-        tokens = self.cnn_embed(segments_reshaped)
+        groups_reshaped = groups.unsqueeze(1).repeat(1, window_size).view(batch_size * window_size)
+        adult_mask = (groups_reshaped == 0)
+        pediatric_mask = (groups_reshaped == 1)
+
+
+        tokens = torch.zeros(batch_size * window_size, self.emb_size, device=segments.device)
+        if adult_mask.any():
+            tokens[adult_mask] = self.cnn_embed_adult(segments_reshaped[adult_mask])
+        
+        if pediatric_mask.any():
+            tokens[pediatric_mask] = self.cnn_embed_pediatric(segments_reshaped[pediatric_mask])
+
+
         tokens = tokens.view(batch_size, window_size, self.emb_size)
 
-        # 2. Add positional embedding
+        # 2. Add positional and group embedding
         positions = torch.arange(window_size, device=segments.device)
         pos_emb = self.pos_emb(positions).unsqueeze(0)  # (1, window_size, emb_size)
         tokens = tokens + pos_emb
+
+        group_embeddings = self.group_emb(groups).unsqueeze(1)
+        tokens = tokens + group_embeddings
 
         # 3. Transformer
         # TODO DODAJ PADDING MASK , src_key_padding_mask=~masks
@@ -257,12 +281,12 @@ def evaluate_and_print_cm(model, data_loader, device, class_names):
     all_labels = []
 
     with torch.no_grad():
-        for segments, labels, masks, source_datasets in data_loader:
-            segments = segments.to(device)
-            labels = labels.to(device)
-            masks = masks.to(device)
+        for segments, labels, masks, sources in data_loader:
+            groups = [0 if DATASET_GROUPS[src] == "Adult" else 1 for src in sources]
+            groups = torch.tensor(groups, dtype=torch.long, device=device)
 
-            outputs = model(segments, masks)
+            segments, labels, masks, groups = segments.to(device), labels.to(device), masks.to(device), groups.to(device)
+            outputs = model(segments, masks, groups)
             _, predicted = torch.max(outputs.data, 1)
             
             predicted_np = predicted.cpu().numpy()
@@ -272,8 +296,8 @@ def evaluate_and_print_cm(model, data_loader, device, class_names):
             all_labels.extend(labels_np)
 
             # Store predictions and labels for each source
-            for i in range(len(source_datasets)):
-                source = source_datasets[i]
+            for i in range(len(sources)):
+                source = sources[i]
                 all_preds_by_source[source].append(predicted_np[i])
                 all_labels_by_source[source].append(labels_np[i])
 
@@ -365,8 +389,6 @@ EMB_SIZE = 32
 NUM_CLASSES = 5
 print(f"Using EMB_SIZE={EMB_SIZE}, BATCH_SIZE={BATCH_SIZE}, LEARNING_RATE={LEARNING_RATE}, WEIGHT_DECAY={WEIGHT_DECAY}, EPOCHS={EPOCHS}", flush=True)
 
-all_patients = sorted(list(set(TRAIN_PATIENTS + VALIDATION_PATIENTS + TEST_PATIENTS)))
-
 # --- Dataset and DataLoader ---
 train_dataset = EEGDataset(
     patients=TRAIN_PATIENTS,
@@ -424,11 +446,13 @@ for epoch in range(EPOCHS):
     model.train()
     total_train_loss = 0
     
-    for segments, labels, masks, _ in train_loader:
-        segments, labels, masks = segments.to(device), labels.to(device), masks.to(device)
+    for segments, labels, masks, sources in train_loader:
+        groups = [0 if DATASET_GROUPS[src] == "Adult" else 1 for src in sources]
+        groups = torch.tensor(groups, dtype=torch.long, device=device)
+        segments, labels, masks, groups = segments.to(device), labels.to(device), masks.to(device), groups.to(device)
 
         optimizer.zero_grad()
-        outputs = model(segments, masks)
+        outputs = model(segments, masks, groups)
         loss = criterion(outputs, labels)
         loss.backward()
         optimizer.step()
@@ -440,9 +464,12 @@ for epoch in range(EPOCHS):
     model.eval()
     total_val_loss = 0
     with torch.no_grad():
-        for segments, labels, masks, _ in validation_loader:
-            segments, labels, masks = segments.to(device), labels.to(device), masks.to(device)
-            outputs = model(segments, masks)
+        for segments, labels, masks, sources in validation_loader:
+            groups = [0 if DATASET_GROUPS[src] == "Adult" else 1 for src in sources]
+            groups = torch.tensor(groups, dtype=torch.long, device=device)
+
+            segments, labels, masks, groups = segments.to(device), labels.to(device), masks.to(device), groups.to(device)
+            outputs = model(segments, masks, groups)
             loss = criterion(outputs, labels)
             total_val_loss += loss.item()
     
