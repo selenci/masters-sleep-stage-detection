@@ -1,0 +1,145 @@
+\chapter{Povzetek dela}
+
+\section{Priprava podatkov}
+Trenutno uporabljamo naslednje datasete:\\
+\begin{tabular}{|p{9cm}|p{6cm}|}
+\hline
+\textbf{Ime} & \textbf{Pacienti} \\
+\hline
+CAP Sleep Database & Odrasli pacienti (Kontrole, Bruksizem, Nespečnost, Narkolepsija, Nočna frontalna lobarna epilepsija, Periodični gibi udov, Vedenjska motnja v spanju REM, Motnje dihanja v spanju) \\
+\hline
+Dataset of EEG recordings containing HFO markings for 30 pediatric patients with epilepsy & 30 otrok in mladostnikov s fokalno ali generalizirano epilepsijo \\
+\hline
+NCH Sleep DataBank (Pediatric: newborns to adolescents) & Otroci \\
+\hline
+Normative longitudinal EEG recordings during sleep stage II in the first year of age & Dojenčki, 15 dni – 12.5 mesecev starosti \\
+\hline
+Sleep-EDF Database Expanded & Odrasli zdravi pacienti, ne jemljejo zdravil \\
+\hline
+Haaglanden Medisch Centrum sleep staging database & Odrasli pacienti \\
+\hline
+Adult High-Density \& Wearable EEG & Odrasli pacienti \\
+\hline
+\end{tabular}
+
+Na vsakem zapisu izberemo naslednje kanale: F4-C4, C4-P4, P4-O2, F3-C3, C3-P3, P3-O1.
+Če kanala ni včasih uporabimo substitucije (trenutno samo na datasetu CAP), sicer se uporablja same ničle za označevanje manjkajočega podatka.
+
+Na vsakem zapisu uporabimo filter ter spremenimo frekvenco vzorčenja na 128 Hz.
+\begin{verbatim}
+    raw.filter(l_freq=0.3, h_freq=30)
+    raw.resample(sfreq=TARGET_SFREQ)
+\end{verbatim}
+
+Podatke razdelimo na 30 sekundne intervale ter za vsakega shranimo spektrogram z naslednjimi nastavitvami.
+
+\begin{verbatim}
+def get_spectrogram(raw):
+        segment_data = raw.get_data()
+
+        spectrograms = []
+        for channel_data in segment_data:
+            f, t, Zxx = scipy.signal.stft(
+                channel_data,
+                fs=TARGET_SFREQ,
+                nperseg=2 * TARGET_SFREQ,
+                noverlap=TARGET_SFREQ
+            )
+            
+            f_mask = (f < 50)
+            Zxx = Zxx[f_mask, :]
+
+            spectrogram = np.log1p(np.abs(Zxx))
+            spectrograms.append(spectrogram)
+        return np.stack(spectrograms, axis=0).astype(np.float32)
+\end{verbatim}
+
+    
+Funkcija najprej izračuna kratkočasovno Fourierovo transformacijo 
+(STFT) za vsak kanal vhodnega signala, kjer za segmentacijo uporabi 
+okno dolžine 256 vzorcev (2 * 128 Hz) s 50-odstotnim prekrivanjem 
+(128 vzorcev). Nato dobljeni spektrogram omeji le na frekvence pod 
+50 Hz, na koncu pa nad absolutnimi vrednostmi izvede še 
+logaritemsko transformacijo `log(1+x)`.
+
+
+\section{Model}
+Za klasifikacijo EEG signalov sem uporabil model, 
+ki združuje konvolucijsko mrežo (CNN) in Transformer.
+CNN deluje kot začetni vmesnik, ki iz spektrogramov
+izvleče uporabne značilnice in jih preoblikuje v vektorje.
+Ti vektorji nato služijo kot vhod za Transformer encoder.
+Pri učenju sem uporabil Focal Loss, ker bolje obravnava 
+neuravnotežene razrede, ter Cosine Annealing 
+scheduler za prilagajanje hitrosti učenja. 
+Podatke sem pripravil v obliki drsečih oken, 
+pri čemer oznako določa sredinski del okna, 
+poleg tega pa se pri treniranju kanali EEG naključno
+premešajo, da model postane bolj robusten. Za stabilnost
+sem dodal dropout, validacijo pa spremljal z zgodnjim
+ustavljanjem. Na koncu sem rezultate ovrednotil z matriko zmede,
+Cohenovo kapo in makro F1 mero.
+
+\section{Eksperimenti in rezultati}
+\subsection{Baseline}
+Najprej kot vhod preprosto dodamo vse podatke.
+Najboljši rezultati:
+\begin{verbatim}
+Confusion Matrix:
+[[ 4547   139   488    74   116]
+ [  565   604  1017    20   542]
+ [  184   174 11352   810   663]
+ [   21     3  1187  4940    21]
+ [   56    91   710    35  4806]]
+Accuracy: 0.7914669078848183
+Cohen's Kappa: 0.714181668325527
+F1 Score (macro): 0.7224575201952812
+\end{verbatim}
+
+\subsection{Dodajanje podatkov o starosti in bolezni}
+Dodamo naslednje embeddinge:
+
+\begin{itemize}
+    \item Starost: Dojenček, Otrok, Odrasli
+    \item Bolezen: Zdravi, Epilepsija
+\end{itemize}
+Podatek v model vstavimo šele pred klasifikacijo (glede na teste je delovalo bolje, kot če damo v transformer)
+\begin{verbatim}
+    age_embedding = self.age_emb(age_group)
+    health_embedding = self.health_emb(health_group)
+
+    combined_features = torch.cat([pooled, age_embedding, health_embedding], dim=1)
+
+    # 5. Classify
+    logits = self.classification_head(combined_features)
+\end{verbatim}
+Najboljši rezultati:
+\begin{verbatim}
+Confusion Matrix:
+[[ 4324   311   411    94   224]
+ [  446   823   950    23   506]
+ [  137   226 10925  1207   688]
+ [   15     6   978  5171     2]
+ [   23   146   727    58  4744]]
+Accuracy: 0.7835670134177597
+Cohen's Kappa: 0.705819791369912
+F1 Score (macro): 0.7283874026980337
+\end{verbatim}
+
+\subsection{Ločeni modeli}
+Uporabimo isti model kot za Baseline, treniramo posebej 
+za otroke in odrasle. TODO: Razbiti na več poddatasetov.
+Za vsak model prilagodimo parametre.
+
+Najboljši rezultati:
+\begin{verbatim}
+Confusion Matrix:
+[[ 4397   268   439   101   159]
+ [  489   741   995    38   485]
+ [  152   188 10989  1323   531]
+ [   20     6   922  5222     2]
+ [   50   115   775   100  4658]]
+Accuracy: 0.7841700587969245
+Cohen's Kappa: 0.7060608603276319
+F1 Score (macro): 0.724619531001996
+\end{verbatim}

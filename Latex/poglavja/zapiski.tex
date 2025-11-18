@@ -1,0 +1,230 @@
+\chapter{Zapiski}
+
+\section{12. 11. 2025}
+\begin{verbatim}
+Poglej dataset: https://bdsp.io/content/hsp/2.0/
+https://www.nature.com/articles/s41467-025-61945-1#data-availability
+\end{verbatim}
+
+
+\section{Prvi poskus}
+Vzel sem en dataset (CAP Sleep Database), določil 6 kanalov (F4-C4, C4-P4, P4-O2, F3-C3, C3-P3, P3-O1), ter
+na njih filtriral frekvence (raw.filter(l\_freq=0.3, h\_freq=30)). Nato sem vsem spremenil frekvenco vzorčenja na
+256 Hz. Podatke sem razdelil na 30 sekundne intervale ter za vsakega shranil spectrogram in Sleep stage (W, S1, S2, S3, S4, REM).
+\begin{verbatim}
+def get_spectrogram(raw):
+    segment_data = raw.get_data()
+
+    spectrograms = []
+    for channel_data in segment_data:
+        f, t, Zxx = scipy.signal.stft(
+            channel_data,
+            fs=TARGET_SFREQ,
+            nperseg=256,
+            noverlap=192
+        )
+        
+        f_mask = (f < 50)
+        Zxx = Zxx[f_mask, :]
+
+        spectrogram = np.log1p(np.abs(Zxx))
+        spectrograms.append(spectrogram)
+    return np.stack(spectrograms, axis=0).astype(np.float32)
+\end{verbatim}
+
+Fazi S3 in S4 nato premapiramo v fazo N3.
+
+Če katerega od 6ih kanalov ni, vstavimo vrstico ničel.
+
+Model je bil naslednji:
+\begin{verbatim}
+class CnnEmbed(nn.Module):
+    """Split EEG into fixed-size patches and embed them."""
+    def __init__(self, emb_size=64, num_channels=6, height=50, width=122, dropout_prob=0.5):
+        super().__init__()
+        print(f"Initializing CnnEmbed with emb_size={emb_size}, num_channels={num_channels}, height={height}, width={width}, dropout_prob={dropout_prob}", flush=True)
+        self.emb_size = emb_size
+
+        self.cnn_feature_extractor = nn.Sequential(
+            nn.Conv2d(num_channels, 16, kernel_size=(3, 3), stride=(2, 2), padding=1),
+            nn.ReLU(),
+            nn.GroupNorm(4, 16),
+            nn.Conv2d(16, emb_size, kernel_size=(3, 3), stride=(2, 2), padding=1),
+            nn.ReLU(),
+            nn.GroupNorm(8, emb_size),
+        )
+
+        with torch.no_grad():
+            dummy = torch.zeros(1, num_channels, height, width)
+            cnn_out = self.cnn_feature_extractor(dummy)
+            flattened_dim = cnn_out.view(1, -1).size(1)
+
+        self.projection = nn.Linear(flattened_dim, emb_size)
+        self.dropout = nn.Dropout(p=dropout_prob)
+
+    def forward(self, x):
+        cnn_out = self.cnn_feature_extractor(x)
+        flattened = cnn_out.view(cnn_out.size(0), -1)
+        flattened = self.dropout(flattened)
+        token = self.projection(flattened)
+
+        return token
+
+# -----------------------------
+# Transformer-based model
+# -----------------------------
+class EEGTransformer(nn.Module):
+    def __init__(self, emb_size=64, nhead=4, num_layers=2, num_classes=5, num_channels=6, height=50, width=122, dropout_prob=0.65):
+        super().__init__()
+        print(f"Initializing EEGTransformer with emb_size={emb_size}, nhead={nhead}, num_layers={num_layers}, num_classes={num_classes}, num_channels={num_channels}, height={height}, width={width}, dropout_prob={dropout_prob}", flush=True)
+
+        self.emb_size = emb_size
+
+        self.cnn_embed = CnnEmbed(
+            emb_size=emb_size,
+            num_channels=num_channels,
+            height=height,
+            dropout_prob=dropout_prob,
+            width=width
+        )
+
+        self.pos_emb = nn.Embedding(10, emb_size)
+
+        # Standard Transformer Encoder
+        encoder_layer = nn.TransformerEncoderLayer(d_model=emb_size, nhead=nhead, batch_first=True)
+        self.transformer = nn.TransformerEncoder(encoder_layer, num_layers=num_layers)
+        self.attn_pool = nn.Linear(emb_size, 1)
+
+        # Classification head
+        self.classification_head = nn.Sequential(
+            nn.Linear(emb_size, emb_size),
+            nn.ReLU(),
+            nn.Dropout(dropout_prob),
+            nn.Linear(emb_size, num_classes)
+        )
+
+    def forward(self, segments, patient_ids, masks):
+        # segments: (batch, 6, 15360)
+        batch_size, window_size, num_channels, height, width = segments.shape
+
+        # 1. Patch embedding
+        segments_reshaped = segments.view(batch_size * window_size, num_channels, height, width)
+        tokens = self.cnn_embed(segments_reshaped)
+        tokens = tokens.view(batch_size, window_size, self.emb_size)
+
+        # 2. Add positional embedding
+        positions = torch.arange(window_size, device=segments.device)
+        pos_emb = self.pos_emb(positions).unsqueeze(0)  # (1, window_size, emb_size)
+        tokens = tokens + pos_emb
+
+        # 3. Transformer
+        # TODO DODAJ PADDING MASK , src_key_padding_mask=~masks
+        transformer_out = self.transformer(tokens)  # (batch, 768, emb_size)
+
+        # 4. Mean + learned pool across tokens
+        weights = torch.softmax(self.attn_pool(transformer_out), dim=1)
+        pooled_mean = transformer_out.mean(dim=1)
+        pooled_attn = (transformer_out * weights).sum(dim=1)
+        pooled = 0.5 * pooled_mean + 0.5 * pooled_attn
+
+        # 5. Classify
+        logits = self.classification_head(pooled)
+        return logits
+\end{verbatim}
+
+Torej, vhod je več 30 sekundnih zapisov (najpogosteje window\_size = 10, torej 5 minut),
+vsakih 30 sekund gre čez CNN in dobimo 1 token dolžine EMB\_SIZE iz vsakega 30 sekundnega zapisa.
+Ti tokeni gredo v Transformer, kjer se upošteva kontekst (prejšnji in naslednji tokeni). (Tokeni imajo dodan še position embedding)
+
+Za stestirat: kakšen vpliv sploh ima dolžina konteksta, izgledal je kot da med windows\_size = 1 in 10 je 
+bil profit around 1\% accuracy.
+
+Napovedat poskusimo vsebino srednjega zapisa (npr. če je window size 10, poskusimo napovedat sleep stage za 6ti zapis).
+
+Uporabljal sem focal loss, ker je za N1 zelo malo zapisov.
+Najboljše rezultate sem dobil za: 
+EMB\_SIZE=32, BATCH\_SIZE=16, LEARNING\_RATE=5e-05, WEIGHT\_DECAY=0.001, EPOCHS=50
+Initializing EEGTransformer with emb\_size=32, nhead=4, num\_layers=2, num\_classes=5, num\_channels=6, height=50, width=122, dropout\_prob=0.5
+
+\begin{table}[h!]
+\centering
+\caption{Confusion Matrix}
+\begin{tabular}{c|c|ccccc}
+\toprule
+ & & \multicolumn{5}{c}{\textbf{Predicted Label}} \\
+\cmidrule(lr){3-7}
+ & & S & N1 & N2 & N3 & R \\
+\midrule
+\multirow{5}{*}{\rotatebox{90}{\textbf{Actual Label}}}
+ & S   & 2634 & 8   & 185  & 13   & 154 \\
+ & N1  & 301  & 0   & 244  & 1    & 213 \\
+ & N2  & 134  & 0   & 4656 & 508  & 467 \\
+ & N3  & 5    & 0   & 657  & 3164 & 187 \\
+ & R   & 54   & 0   & 496  & 23   & 2388 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\[
+\text{Accuracy} = 0.7787
+\]
+
+
+Sem imel validation set in vzel tisti model, ki se je na validation datasetu najboljše odrezal.
+Imel sem tudi early stopping
+
+\begin{verbatim}
+criterion = FocalLoss(task_type='multi-class', alpha=None, gamma=2.0, reduction='mean', num_classes=NUM_CLASSES)
+optimizer = torch.optim.Adam(model.parameters(), lr=LEARNING_RATE, weight_decay=WEIGHT_DECAY)
+scheduler = CosineAnnealingLR(optimizer, T_max=EPOCHS, eta_min=1e-6)
+\end{verbatim}
+
+\section{Drugi poskus}
+
+V prvem datasetu sem začel dodajati različne kanale, kadar tisti primarni v podatkih ne obstajajo.
+Prav tako sem dodal data augmentation - kanale pred treniranjem premešam, zato da se model ne more naučiti
+channel specific značilnosti. To je pripeljalo accuracy 0.831.
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=12cm]{cm/confusion_matrix_cap2_30s_4_trans.png}
+    \end{center}
+\end{figure}
+
+Nato sem dodal še dva podatkovna seta $\rightarrow$ 
+"Adult High-Density \& Wearable EEG" (AHD)
+in "Dataset of EEG recordings containing HFO markings for 30 pediatric patients with epilepsy" (HFO)
+
+Model sem naredil malo kompleksenjši, zmanjšal training rate, poskušal prilagoditi parametre večim podatkom.
+
+\begin{verbatim}
+Initializing EEGTransformer with emb_size=64, nhead=4, num_layers=4, num_classes=5, num_channels=6, height=50, width=122, dropout_prob=0.65
+Initializing CnnEmbed with emb_size=64, num_channels=6, height=50, width=122, dropout_prob=0.65
+\end{verbatim}
+
+izkaže se, da je HFO set precej bolj zamašen, večji maximumi, večja varianca. Par razlogov:
+\begin{itemize}
+    \item otroci imajo močnejšo voltažo pri EEG signalih
+    \item za preverit če lahko odstranimo šum kot so mežiki itd.
+    \item mogoče tudi podatki niso preveč lepi, nekaterih faz imamo zelo malo, lahko je malo vprašljivo.
+\end{itemize}
+
+Za poskusit:
+Najprej bom normaliziral inpute kot so, ne pa en skupen mean in std za VSE podatke.
+Mogoče bi bilo smiselno imeti mean za otroke in odrasle posebej in normalizirati skupine posebej.
+Verjetno se lahko doda še embeddings za starostne skupine
+Če najdem še kak podatkovni set z EEG otrok je def. za preverit če so problemi age specific ali zgolj
+na tem datasetu HFO.
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=\linewidth]{cm/all_confusion_matrices_1.png}
+    \end{center}
+\end{figure}
+
+\begin{verbatim}
+    Accuracy for source PROCESSED_AHD: 0.7535
+    Accuracy for source PROCESSED_CAP_2: 0.8356
+    Accuracy for source PROCESSED_HFO: 0.6150
+    Joint Accuracy: 0.8004
+\end{verbatim}

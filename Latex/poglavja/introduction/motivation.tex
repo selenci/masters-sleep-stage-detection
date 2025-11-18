@@ -1,0 +1,31 @@
+\chapter{Introduction}
+This chapter serves as an introduction into the master's thesis, explaining why 
+the topic of sleep stage classification is important and interesting.
+We describe the gap in existing research that we aim to fill
+and quickly describe the used approach to tackle the problem.
+
+\section{Motivation}
+Sleep staging is the process of analyzing data recorded during sleep to classify
+different stages of sleep. This classification is used in both clinical and research
+settings to understand sleep patterns, diagnose sleep disorders, and evaluate the
+effectiveness of treatments. Traditional sleep staging is performed manually by trained
+professionals, who have to meticulously check and mark the recordings. Reportedly, thousands of hours of sleep are recorded nightly \cite{VallatWalker2021}. Additionally,
+on average, professionals agree on only about 83\% of the sleep stages when scoring the same
+recordings \cite{Rosenberg2013}. This makes the process both time-consuming and subjective.
+
+In recent years, various machine learning solutions have been implemented 
+to help sleep technicians make sleep staging more efficient and less burdensome.
+While accuracy of these solutions is usually high, they are often designed 
+to solve a specific subproblem, such as classifying patients in particular age groups.
+However, sleep patterns can vary significantly across different demographics. For example,
+total power of lower frequency brain waves, which are primarily used to classify the sleep stage,
+has been shown to decrease with age \cite{Greve2025}.
+
+Furthermore, the transformer architecture \cite{Vaswani2017AttentionIA} which
+has shown great success in other temporal data domains, remains a
+relatively unexplored approach for sleep staging.
+
+This master's thesis aims to develop and evaluate a generalizable sleep staging model
+that can accurately classify sleep stages across diverse demographics. We do this by proposing multiple
+strategies, each based on the transformer architecture, then compare and discuss their effectiveness.
+

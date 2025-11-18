@@ -1,0 +1,71 @@
+\chapter{Related Work}
+The usage of automatic stage classification tools is an established field of research,
+with efforts dating back over half a century. While earlier methods depended on heuristic
+algorithms, modern approaches predominantly use machine learning.
+
+
+One of the first sources from 1970 \cite{FROST197088} used EEG recordings 
+to classify sleep stages in real time, using specialized hardware. The machine 
+preprocessed the signal by amplifying and filtering it. The machine then primarly 
+works using a so called "amplitude-weighted, dominant-frequency meter". This module 
+measures the EEG signal based on their amplitude (measured using 3 predefined levels).\todo{DO CHECK THIS} 
+Based on which levels are crossed, different artificial signal is generated. This
+signal is then used to classify the sleep stages. 
+To detect REM sleep, the device uses an additional EOG channel to detect rapid eye movements.
+
+Similarly, neonatal sleep stage classification attempts date back decades.
+An early method from 1987 \cite{HARPER1987379} used 7 cardiac and respiratory measures
+of children up to age of 6 months. Using discriminant analysis they developed a model,
+for which article reports an overall accuracy of 84.8\%.
+
+However, since the rise of machine learning, more advanced methods have been developed.
+Most often, these methods either use EEG or all PSG signals as input. It is however, most common, 
+for these models to learn on a specific demographic. That is, models either see only adult or only
+neonatal patients.
+
+\section{Machine Learning Methods for Sleep Stage Classification of Adults}
+
+A random forest classifier was one of the first machine learning models used for sleep stage classification \cite{FRAIWAN201210}.
+The model used a single EEG channel represented in time-frequency domain. Study consisted of 16 
+subjects aged 30 to 75. Article tried multiple feature extraction methods and found the 
+best results using Continuous Wavelet Transform signal breakdown. Reportedly, 
+the model achieved an accuracy of 83\%.
+
+Later, models designed for temporal data were used. A combination of convolutional neural network (CNN)
+and long short-term memory (LSTM) network was developed in 2021 \cite{cnnlstm2021}.
+Model used three convolutional layers and two LSTM layers and finally a dense layer 
+for classification into one of the 5 stages. The model used two EEG channels as input.
+The model was tested on 12 subjects, in ages between 21 and 61. The model achieved
+an accuracy of 74\%.
+
+Additionally, a transformer based model called MultiChannelSleepNet was developed \cite{transformersleep2023}.
+Specifically, a transformer encoder is trained on time-frequency representation of multiple PSG channels.
+Architecture models and extracts features from each channel separately, before combining the information,
+which acts as the input into another transformer encoder. The model was tested on 
+subjects aged between 25 and 101 years. The model achieved an accuracy of 89.6\% on one of the used datasets
+and 90.4\% on another. \todo{bi blo boljs zracunat skupno verjetnost?}
+
+\section{Machine Learning Methods for Sleep Stage Classification of Infants and Children} 
+Similarly to sleep staging for adults, temporal models for neonatal \todo{NAJDI EARLIER SOURCE}
+classification have been developed. Approach from article \cite{neonetalLstm} uses 
+a single EEG channel to classify sleep into 3 stages, Awake, Active sleep and Quiet sleep.
+All patients were 40 weeks post-conceptional old. Using a bidirectional LSTM network,
+and a fully connected classification layer the model achieved an overall accuracy of
+96.81\%. Model was evaluated using a 10-fold cross validation \cite{neonetalLstm}.
+
+A CNN model from 2023 aimed to classify sleep 
+into Quiet and Non-Quiet stages \cite{neonatalcnn2023}.
+The model was trained on EEG data of 19 preterm and term new borns,
+using 9 channels as input. The model achieved an accuracy of 94.07\% \cite{neonatalcnn2023}.
+The EEG data was first preprocessed into 8 time-domain features and 
+four frequency-domain features, which were then used as input into the CNN model.
+
+Similarly to adults, a transformer based model was developed for children sleep staging \cite{transformerinfant2022}.
+The architecture used was inspired by Vision Transformers (ViT), which is commonly 
+used in image based tasks. However, the architecture was 
+modified for multichannel input. An epoch, which consists of 30 seconds of data,
+is split into 30 patches, one for each second. This is analogous to tokenization.
+From this, the model classifies each epoch into one of the standard 5 stages.
+The data consisted of 3.6 million epochs from infants, children and adolescents patient.
+Model achieved an overall accuracy of 78.2\%, with 
+highest accuracy for patients in the range of 8 to 9 years (85\%) \cite{transformerinfant2022}.

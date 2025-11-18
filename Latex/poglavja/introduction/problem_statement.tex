@@ -1,0 +1,20 @@
+\section{Problem Statement}
+The fundamental task in automated sleep analysis is the classification of multichannel electroencephalogram (EEG)
+signals into five discrete sleep stages: Wake, N1, N2, N3, and REM.
+While numerous machine learning models have been developed for this purpose, a critical and
+persistent challenge is their failure to generalize to new, unseen data.
+
+This lack of generalization arises because most high-performing models are trained and validated on limited and
+homogeneous datasets, often sourced from a single clinical center with a specific patient demographic and a
+consistent hardware setup. Consequently, when these models are applied to data from different populations
+or recorded with different equipment their performance weakens.
+This severely restricts their practical utility in real-world clinical settings, where patient
+populations are inherently diverse in age, health status, and other factors that influence EEG patterns.
+
+Therefore, the central problem addressed by this thesis is the design of a sleep staging model
+that is robust to domain shift. A successful solution must not only achieve good classification accuracy
+across all sleep stages, accounting for their natural class imbalance, but must also maintain this performance
+consistently across datasets.
+This thesis will investigate the use of the transformer architecture to learn domain-invariant
+features from EEG signals to solve this generalization challenge.
+
