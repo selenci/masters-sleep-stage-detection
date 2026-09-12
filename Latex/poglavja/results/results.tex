@@ -111,7 +111,7 @@ The most significant impact of the demographic prior was observed during the mis
 While still a degradation, this $\sim$3.3 percentage point drop is drastically less severe than the catastrophic 13-point drop observed in the baseline (Experiment 1). Crucially, the model successfully protected the highly vulnerable Children cohort. In the baseline experiment, simulating sensor loss caused the Children cohort's accuracy to crash to an unusable 46.58\%. With the age embedding included, the same missing-channel evaluation maintained an accuracy of 70.61\%. It seems that explicitly providing the age group acts as a powerful regularizer, preventing the network from memorizing brittle spatial layouts as a proxy for the patient's developmental stage.
 
 \paragraph{Reduced Channel Model (3 Channels)}
-When trained natively on 3 channels, the age-conditioned model achieved an overall accuracy of 74.14\% (Cohen's Kappa was 0.657 and Macro F1 was 0.668). Interestingly, native 3-channel training further improved performance for both the Teenagers (76.73\%) and Children (76.40\%) cohorts compared to the 6-channel conditioned model, reinforcing the finding that restricting spatial dimensions can actually aid generalization for non-adult cohorts when dataset volumes are smaller.
+When trained natively on 3 channels, the age-conditioned model achieved an overall accuracy of 73.08\% (Cohen's Kappa was 0.643 and Macro F1 was 0.653). Interestingly, native 3-channel training further improved performance for the Teenagers (77.38\%) and Infants (73.83\%) cohorts compared to the 6-channel conditioned model, reinforcing the finding that restricting spatial dimensions can act as a form of regularization that aids generalization for certain non-adult cohorts.
 
 \begin{table}[ht]
 \centering
@@ -123,7 +123,7 @@ When trained natively on 3 channels, the age-conditioned model achieved an overa
 \midrule
 Trained on 6 ch, Evaluated on 6 ch & 74.78\% & 0.666 & 0.679 \\
 Trained on 6 ch, Evaluated on 3 ch & 71.46\% & 0.621 & 0.642 \\
-Trained on 3 ch, Evaluated on 3 ch & 74.14\% & 0.657 & 0.668 \\
+Trained on 3 ch, Evaluated on 3 ch & 73.08\% & 0.643 & 0.653 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -139,10 +139,10 @@ Trained on 3 ch, Evaluated on 3 ch & 74.14\% & 0.657 & 0.668 \\
 \cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(l){8-10}
 \textbf{Age Group} & \textbf{Accuracy} & \textbf{Kappa} & \textbf{F1} & \textbf{Accuracy} & \textbf{Kappa} & \textbf{F1} & \textbf{Accuracy} & \textbf{Kappa} & \textbf{F1} \\
 \midrule
-Adults (0)   & 75.36\% & 0.663 & 0.704 & 73.77\% & 0.641 & 0.681 & 73.75\% & 0.640 & 0.680 \\
-Teenagers (1)& 70.89\% & 0.589 & 0.537 & 71.43\% & 0.588 & 0.540 & 76.73\% & 0.662 & 0.624 \\
-Children (2) & 76.18\% & 0.655 & 0.662 & 70.61\% & 0.584 & 0.613 & 76.40\% & 0.663 & 0.680 \\
-Infants (3)  & 73.79\% & 0.653 & 0.619 & 68.62\% & 0.585 & 0.571 & 73.77\% & 0.655 & 0.623 \\
+Adults (0)   & 75.36\% & 0.663 & 0.704 & 73.77\% & 0.641 & 0.681 & 71.82\% & 0.611 & 0.660 \\
+Teenagers (1)& 70.89\% & 0.589 & 0.537 & 71.43\% & 0.588 & 0.540 & 77.38\% & 0.680 & 0.645 \\
+Children (2) & 76.18\% & 0.655 & 0.662 & 70.61\% & 0.584 & 0.613 & 75.15\% & 0.641 & 0.638 \\
+Infants (3)  & 73.79\% & 0.653 & 0.619 & 68.62\% & 0.585 & 0.571 & 73.83\% & 0.654 & 0.607 \\
 \bottomrule
 \end{tabular}%
 }
