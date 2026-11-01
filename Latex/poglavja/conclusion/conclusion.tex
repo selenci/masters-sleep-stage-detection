@@ -1,26 +1,24 @@
 \chapter{Conclusion}
-
 Sleep staging is a complex clinical task that has traditionally been performed by 
 human experts who meticulously analyze continuous physiological recordings.
-Recently, deep learning models have been increasingly utilized to automate and scale
+Recently, researchers have increasingly utilized deep learning models to automate and scale
 this process. In this thesis, we developed a deep neural network based on the Transformer
 architecture to classify sleep stages from raw EEG signals. We demonstrated the inherent limitations
 of a generalist baseline model that processes data without demographic context, and we
 subsequently introduced and evaluated three distinct methodologies for incorporating patient age
 to improve generalization and robustness.
 
-Our baseline evaluations revealed that while the unconditioned model performed well on the majority
-adult dataset, it struggled to generalize across other developmental stages, exposing two critical
-vulnerabilities: cross-channel over-reliance and demographic bias. For underrepresented cohorts,
-such as children and infants, the full 6-channel model achieved decent accuracy by learning brittle
-cross-channel dependencies. This vulnerability was exposed when evaluating on only
-3 channels, which caused the model's predictive accuracy for these younger cohorts to catastrophically
-collapse.
+Our baseline evaluations revealed that while the unconditioned model performed well on the largest adult dataset,
+it struggled to generalize across other developmental stages, exposing two critical vulnerabilities: an over-reliance
+on information shared across channels and demographic bias. For underrepresented cohorts, such as children and infants,
+the full 6-channel model achieved decent accuracy by exploiting dependencies between channels that did not generalize well.
+This became evident when evaluating the model using only 3 channels, which caused predictive accuracy for
+these younger cohorts to collapse catastrophically.
 
-Conversely, the model exhibited a different yet equally severe limitation when processing teenage data. When evaluated on all 6 channels, accuracy for teenagers was the lowest among all cohorts; however, accuracy substantially improved when the spatial dimensionality was reduced to 3 channels. 
+Conversely, the model exhibited a different yet equally severe limitation when processing teenage data. When we evaluated the model on all 6 channels, accuracy for teenagers was the lowest among all cohorts; however, accuracy substantially improved when we reduced the spatial dimensionality to 3 channels. 
 
 We argue this anomaly stems from the interaction between extreme dataset imbalance and adolescent neurodevelopment. Because teenagers share fundamental temporal sleep dynamics with adults, the network attempted to map teenage recordings into the dominant adult feature space. However, due to ongoing adolescent brain maturation, teenage EEG exhibits distinct amplitudes and spatial distributions compared to adult sleep. When evaluating across all 6 channels, these spatial differences conflicted with the network's adult-biased spatial filters, acting as noise. 
-We hypothesize that reducing the input dimensionality to 3 channels effectively provided architectural regularization: by removing the extra spatial channels, the network was prevented from enforcing rigid adult spatial rules, allowing it to leverage the shared temporal sleep features that generalize across both demographics.
+We hypothesize that reducing the input dimensionality to 3 channels effectively provided architectural regularization: by removing the extra spatial channels, we prevented the network from enforcing rigid adult spatial rules, allowing it to leverage the shared temporal sleep features that generalize across both demographics.
 
 To address these demographic disparities, our first proposed solution 
 incorporated the patient's age cohort as an explicit demographic prior 
@@ -31,13 +29,13 @@ While this balancing effect resulted in a marginal decrease in adult accuracy,
 performance on the underrepresented and morphologically distinct cohorts improved significantly.
 Most crucially, this demographic conditioning served as a powerful 
 regularizer against spatial brittleness. When evaluating on only 3 channels,
-the catastrophic performance collapse previously observed in the children cohort
-was successfully mitigated, maintaining a significantly higher stability.
+we successfully mitigated the catastrophic performance collapse we previously observed in the children cohort,
+maintaining a significantly higher stability.
 
-Interestingly, an anomaly was observed when the age-conditioned model
-was natively trained and evaluated on only 3 channels: accuracy for 
+Interestingly, we observed an anomaly when we natively trained and evaluated the age-conditioned model
+on only 3 channels: accuracy for 
 the teenage cohort actually decreased (77.38\%) compared to the 
-unconditioned 3-channel baseline (81.28\%). We hypothesize that this 
+unconditioned 3-channel baseline (81.28\%). We speculate that this 
 drop is a consequence of representational partitioning. In the unconditioned 
 3-channel baseline, the absence of age group information allowed teenagers 
 to seamlessly leverage the massive volume of shared features learned from the 
@@ -56,8 +54,8 @@ this isolation allowed each network to optimize its feature extraction exclusive
 for its target demographic. However, this approach exposed a critical vulnerability
 regarding dataset volume. The specialized model for the children cohort, which
 possessed the fewest training samples, yielded the poorest overall native
-performance (70.37\%). Furthermore, when subjected to the 3-channel missing data
-simulation, this model's accuracy catastrophically plummeted to 34.69\%. This
+performance (70.37\%). Furthermore, when we subjected this model to the 3-channel missing data
+simulation, its accuracy catastrophically plummeted to 34.69\%. This
 confirms that in the absence of sufficient training data, the full 6-channel
 spatial resolution leads to overparameterization.
 
@@ -76,23 +74,23 @@ conditioned models, the isolated teenage network could fully leverage all 6
 channels to learn optimized, robust representations unique to adolescent sleep
 architecture.
 
-To address the data scarcity observed in the younger demographics, our third
+To address the data scarcity we observed in the younger demographics, our third
 proposed solution utilized transfer learning. By utilizing the partitioned adult
 networks as base models, we aimed to leverage foundational sleep features learned
 from the massive adult majority and fine-tune them on the smaller,
 underrepresented cohorts. This approach, however, yielded a complex trade-off
-between absolute peak performance and diagnostic robustness. When trained and
-evaluated on the full 6-channel resolution, children and infant models slightly
+between absolute peak performance and diagnostic robustness. When we trained and
+evaluated children and infant models on the full 6-channel resolution, they slightly
 underperformed their from-scratch, age-specific counterparts. We attribute this
-to weight anchoring and negative transfer; the pre-trained spatial filters were
-so deeply optimized for adult neurophysiology that the network struggled to fully
+to weight anchoring and negative transfer; we had so deeply optimized the pre-trained spatial filters
+for adult neurophysiology that the network struggled to fully
 adapt them to the unique spatial topographies of children and infants during fine-tuning.
 
 Despite this slight drop in peak accuracy, transfer learning demonstrated
 profound clinical value in mitigating spatial brittleness for data-starved
-cohorts. When subjected to the simulated loss of 3 channels, the fine-tuned
-children's model maintained an accuracy of 57.27\%—a massive 23 percentage point 
-improvement over the catastrophic 34.69\% crash observed in the isolated model. 
+cohorts. When we subjected the fine-tuned children's model to the simulated loss
+of 3 channels, it maintained an accuracy of 57.27\%—a massive 23 percentage point 
+improvement over the catastrophic 34.69\% crash we observed in the isolated model. 
 By grounding the network in generalized adult priors, the fine-tuning process
 successfully prevented the data-scarce children's model from memorizing
 brittle spatial shortcuts. Finally, this experiment reinforced our previous findings
@@ -115,7 +113,7 @@ while our demographic-aware approaches dramatically outpaced YASA on younger
 cohorts—most notably for teenagers (reaching 83.38\% vs. 65.39\%) and children
 (reaching 76.18\% vs. 60.94\%).
 
-The most profound gap was observed in the infant cohort, where our age-conditioned
+We observed the most profound gap in the infant cohort, where our age-conditioned
 and age-specific models outperformed YASA by nearly 30 percentage points (73.79\%
 and 74.87\%, respectively, vs. 44.96\%). This dramatic performance collapse in the
 established model underscores a critical limitation of traditional off-the-shelf
@@ -130,7 +128,7 @@ Through these experiments, this thesis has demonstrated the critical importance
 of explicitly accounting for demographic variance in deep learning models
 for sleep staging. Furthermore, our findings highlight a significant
 methodological risk: relying solely on standard test-set accuracy can yield
-misleading conclusions regarding model competence. As demonstrated, seemingly
+misleading conclusions regarding model competence. As we demonstrated, seemingly
 minor data changes such as the simulated loss of a few clinical sensors 
 can expose severe spatial brittleness and trigger catastrophic 
 performance degradation. Consequently, when developing models intended for 
