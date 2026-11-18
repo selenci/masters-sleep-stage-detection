@@ -104,7 +104,7 @@ Before evaluating the age-conditioned model, it is crucial to outline the underl
 \end{itemize}
 Given this extreme imbalance, models we train on the aggregate dataset are inherently biased toward adult representations. 
 
-To conduct this experiment, we concatenated an age-embedding vector to the temporal feature representations before the Transformer encoder layers. Similar to Experiment 1, we performed an extensive hyperparameter grid search. We trained the models for up to 15 epochs with early stopping. The optimal configurations we selected for final evaluations differed slightly depending on the spatial resolution we modeled:
+Similar to Experiment 1, we performed an extensive hyperparameter grid search. We trained the models for up to 15 epochs with early stopping. The optimal configurations we selected for final evaluations differed slightly depending on the spatial resolution we modeled:
 \begin{itemize}
     \item \textbf{6-Channel Setup:} Learning rate of $5 \times 10^{-5}$, batch size of 32, embedding size of 64, 4 attention heads, 3 Transformer layers, and a dropout rate of 0.4.
     \item \textbf{3-Channel Native Setup:} Learning rate of $5 \times 10^{-5}$, batch size of 16, embedding size of 64, 4 attention heads, 4 Transformer layers, and a higher dropout rate of 0.5.
@@ -232,7 +232,7 @@ marginal improvement, reaching 83.63\% compared to its from-scratch counterpart 
 (67.22\%) and Infants (71.05\%) underperformed their from-scratch baselines (70.37\% and 74.87\%, respectively). This suggests that
 while adult priors provide a strong initialization that transfers effectively to adolescents, heavily anchoring the weights in adult
 spatial-temporal features may slightly restrict the model from perfectly converging on the more distinct, native EEG morphologies of
-early developmental pediatric cohorts. This is somewhat sensible as sleep patterns go through quite large changes, from birth and into adulthood. \todo{ukradeno iz tvojega komentarja :) se mi zdi da je to samo po sebi dovolj dobra hipoteza.}
+early developmental pediatric cohorts. This is somewhat sensible as sleep patterns go through quite large changes, from birth and into adulthood.
 
 \subsubsection*{Mitigating Catastrophic Degradation}
 Where transfer learning demonstrated profound clinical value was in improving robustness for data-starved demographics. In Experiment 3, the from-scratch 6-channel Children model suffered a catastrophic collapse to 34.69\% accuracy when we evaluated it on 3 channels. In stark contrast, the transfer-learned 6-channel model maintained a much more stable 57.27\% accuracy under the exact same missing-data simulation. By grounding the network in generalized spatial priors we learned from the massive adult dataset, the fine-tuned model avoids over-leveraging spatial correlations, significantly buffering against random guessing during sensor loss.
@@ -319,7 +319,7 @@ EEG spectrograms to one of four specialized, pre-trained networks:
 \begin{itemize}
     \item \textbf{adults (Age $\geq$ 18 years):} we process the sequence with the standard generalist baseline model (Experiment 1), which benefits from the massive dataset,
     \item \textbf{teenagers (12 to 18 years):} we route it to the fine-tuned transfer learning model (Experiment 4), which successfully adapts adult spatial priors to adolescent waveforms,
-    \item \textbf{children (2 to 12 years):} we handle it with the age-conditioned model (Experiment 2), which requires an explicit demographic embedding tensor,
+    \item \textbf{children (2 to 11 years):} we handle it with the age-conditioned model (Experiment 2), which requires an explicit demographic embedding tensor,
     \item \textbf{infants ($<$ 2 years):} we evaluate it using the natively trained age-specific network (Experiment 3), which best captures the highly distinct EEG patterns unique to early pediatric development.
 \end{itemize}
 If the patient's age is missing, the router falls back to the baseline model, which was trained on all age groups.

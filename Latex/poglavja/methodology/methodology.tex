@@ -11,7 +11,7 @@ The subsequent sections present four neural network frameworks developed to inve
 \end{itemize}
 
 
-\section{Data preprocessing}
+\section{Data Preprocessing}
 \label{sec:data_preprocessing}
 
 To ensure consistency across multiple disparate datasets (e.g., CAP Sleep Database, NCH Sleep DataBank, and Adult High-Density EEG),
@@ -55,15 +55,15 @@ Following this transformation, we applied global Z-score normalization to the sp
 \subsection{Data Augmentation via Channel Permutation}
 To prevent the models from overfitting to specific hardware configurations or fixed channel orderings present in the diverse datasets, we applied a spatial data augmentation technique during the training phase across all experiments. Specifically, we randomly shuffled the order of the EEG channels within the input tensor for every batch. This channel permutation forces the spatial-frequency feature extractor to learn robust, channel-invariant representations rather than relying on fixed spatial indices.
 
-\section{Developed frameworks} \label{sec:developed_frameworks}
+\section{Developed Frameworks} \label{sec:developed_frameworks}
 In this section, we present four frameworks that we designed to evaluate distinct strategies for handling age demographics in automated sleep staging:
 \begin{itemize}
-    \item \textbf{unconditioned baseline} (section \ref{sec:baseline_model}), which operates on the EEG signal alone,
-    \item \textbf{explicit age conditioning} (section \ref{sec:additional_embeddings}), which incorporates age metadata through a class-token embedding,
-    \item \textbf{age-specific models} (section \ref{sec:separate_models}), which we train separately on partitioned age cohorts, and
-    \item \textbf{transfer learning from adult priors} (section \ref{sec:finetuning}), which fine-tunes an adult-trained model on the younger cohorts using selective layer freezing.
+    \item \textbf{unconditioned baseline} (Section \ref{sec:baseline_model}), which operates on the EEG signal alone,
+    \item \textbf{explicit age conditioning} (Section \ref{sec:additional_embeddings}), which incorporates age metadata through a class-token embedding,
+    \item \textbf{age-specific models} (Section \ref{sec:separate_models}), which we train separately on partitioned age cohorts, and
+    \item \textbf{transfer learning from adult priors} (Section \ref{sec:finetuning}), which fine-tunes an adult-trained model on the younger cohorts using selective layer freezing.
 \end{itemize}
-\subsection{Baseline model} \label{sec:baseline_model}
+\subsection{Baseline Model} \label{sec:baseline_model}
 Machine learning models often lack explicit reasoning as to why they make certain
 predictions, and researchers thus regard them as black boxes. Predicting what a machine learning model
 can and cannot interpret from input data alone is complex. It is therefore possible that the
@@ -130,7 +130,7 @@ producing weights that sum to one. The pooled representation is the weighted sum
 Finally, we pass this aggregated representation through a classification head—a multilayer perceptron (MLP) consisting of a linear layer, a ReLU activation, Dropout, and a final linear layer—yielding the logits for the 5 sleep stages.
 During training, we calculate the loss on the central token using Focal Loss, which is particularly effective for handling class imbalance by down-weighting easy examples and focusing on harder, misclassified examples.
 
-\subsection{Model with additional embeddings} \label{sec:additional_embeddings}
+\subsection{Model with Additional Embeddings} \label{sec:additional_embeddings}
 
 To explicitly account for the age-related domain shifts we established in Section \ref{sec:motivation}, we developed a secondary architecture designed to actively integrate patient age metadata into the sequence modeling process.
 
@@ -153,10 +153,10 @@ The primary divergence from the baseline model lies in how we contextualize the 
 
 To inject the demographic data into the model, we first discretize the patient's age into one of 4 categorical age groups:
 \begin{itemize}
-    \item \textbf{Infant (0--2 years):} Captures the early developmental phase where standard sleep stages are just beginning to take shape and stabilize.
-    \item \textbf{Child (2--12 years):} Represents the period where sleep stages fully differentiate into distinct N1, N2, and N3 stages, prior to the shifts we see in adolescence and adulthood.
-    \item \textbf{Teen (13--18 years):} Covers the transitional phase where sleep architecture begins shifting toward adult patterns, marked by the gradual age-related decrease in N3 sleep.
-    \item \textbf{Adult (19+ years):} Represents mature, stable sleep patterns that conform to standard adult scoring guidelines.
+    \item \textbf{Infant (younger than 2 years):} Captures the early developmental phase where standard sleep stages are just beginning to take shape and stabilize.
+    \item \textbf{Child (2--11 years):} Represents the period where sleep stages fully differentiate into distinct N1, N2, and N3 stages, prior to the shifts we see in adolescence and adulthood.
+    \item \textbf{Teen (12--18 years):} Covers the transitional phase where sleep architecture begins shifting toward adult patterns, marked by the gradual age-related decrease in N3 sleep.
+    \item \textbf{Adult (18+ years):} Represents mature, stable sleep patterns that conform to standard adult scoring guidelines.
 \end{itemize}
 
 We pass this categorical value through an embedding layer, mapping the age group to a dense vector of the same dimensionality as the EEG tokens. 
@@ -171,7 +171,7 @@ This single token, which now encapsulates both the contextualized EEG sequence d
 \subsubsection*{Demographic Batch Balancing}
 To ensure the model effectively learns to utilize this age profile across all demographics, we had to address a significant imbalance in the training data. Because adult recordings vastly outnumber those from pediatric or infant populations, standard random sampling would bias the network toward adult EEG patterns, severely limiting its ability to learn accurate representations for the younger age cohorts. Therefore, we introduced a class-balanced weighted sampling strategy during the training phase. By assigning sampling probabilities that were inversely proportional to the total number of epochs available for each of the four age groups, we guaranteed that every training batch contained a demographically balanced distribution of data.
 
-\subsection{Separate models (Age-Stratified Framework)} \label{sec:separate_models}
+\subsection{Separate Models (Age-Stratified Framework)} \label{sec:separate_models}
 
 In our third experimental approach, we explore an alternative method for handling demographic variance. Rather than relying on a single, generalized network to learn the complexities of age-related EEG shifts (as we attempted in the embedding-based model), we hypothesized that isolating the training data distributions might yield superior results. To test this, we developed an age-stratified routing framework.
 
@@ -186,13 +186,13 @@ We train each model exclusively on its own demographic cohort, allowing it to sp
 \end{figure}
 
 \subsubsection*{Architecture and Data Partitioning}
-For this framework, the neural network architecture reverts entirely to the original Baseline model. 
+For this framework, the neural network architecture reverts entirely to the original baseline model. 
 Instead of altering the model's internal architecture, we altered the training data distribution.
 We partitioned the global training dataset into the four age groups we defined in the previous section.
 
 We independently initialized and trained four distinct instances of the baseline model, one for each demographic cohort. Consequently, each model acts as a demographic expert, highly specialized in the specific characteristics of its respective age group.
 
-\subsection{Fine-tuned model} \label{sec:finetuning}
+\subsection{Fine-Tuned Model} \label{sec:finetuning}
 In our fourth and final experimental approach, we explore a transfer
 learning paradigm. Typically, in physiological datasets, data from
 adult cohorts are vastly more abundant than data from pediatric or
@@ -202,7 +202,7 @@ the largest demographic group and later learn age-specific patterns
 on smaller specific datasets.
 
 The foundation of this framework is the adult specific model from 
-section \ref{sec:separate_models}.
+Section \ref{sec:separate_models}.
 We prepare the trained model for fine-tuning on the remaining age groups (infants, children, and teens). Rather than updating the entire network during fine-tuning (which risks catastrophic forgetting and overfitting on smaller pediatric cohorts) we employ a selective partial layer-freezing strategy. 
 
 Specifically, we configure the gradient updates as follows:
@@ -212,4 +212,4 @@ Specifically, we configure the gradient updates as follows:
     \item \textbf{Unfrozen Classification Head:} We also unfreeze the final MLP mapping the pooled representation to the 5 sleep stages. This ensures the decision boundaries can shift to accommodate the updated temporal representations.
 \end{itemize}
 
-This approach acts as a hybrid between the generalized Baseline model and the specialized framework. By isolating the layers responsible for temporal context and classification, this framework aims to retain the robust, generalized feature-extraction capabilities it learned from a massive adult dataset, while adapting only the reasoning modules to other age groups.
+This approach acts as a hybrid between the generalized baseline model and the specialized framework. By isolating the layers responsible for temporal context and classification, this framework aims to retain the robust, generalized feature-extraction capabilities it learned from a massive adult dataset, while adapting only the reasoning modules to other age groups.
