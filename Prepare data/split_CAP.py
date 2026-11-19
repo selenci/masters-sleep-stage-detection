@@ -43,62 +43,68 @@ FILE_BASE_NAME = sys.argv[1]
 # --- Load EDF ---
 edf_file = f"../Data/cap-sleep-database-1.0.0/{FILE_BASE_NAME}.edf"
 CHANNEL_SUBSTITUTIONS = {
-    # --- RIGHT HEMISPHERE TARGETS ---
-    "F4-C4": [
-        # Ideal substitutes (Referential channels from the same electrodes)
-        "F4-A2", "F4-M2", "F4-A1", "F4-M1", "C4-A2", "C4-M2", "C4-A1", "C4-M1",
-        # Naming variations (with spaces, no spaces, prefixes)
-        "F4 A2", "F4 M2", "F4 A1", "F4 M1", "C4 A2", "C4 M2", "C4 A1", "C4 M1",
-        "F4A2", "F4M2", "F4A1", "F4M1", "C4A2", "C4M2", "C4A1", "C4M1",
-        "EEG F4-A2", "EEG F4-M2", "EEG F4-A1", "EEG F4-M1", "EEG C4-A2", "EEG C4-M2", "EEG C4-A1", "EEG C4-M1",
-        # Broader bipolar substitutes (Right Hemisphere)
-        "Fp2-F4", "F4-T4", "Fz-C4",
-        # LAST RESORT: Cross-Hemisphere Fallbacks
-        "F3-C3", "F3-A1", "F3-A2", "C3-A1", "C3-A2",
-    ],
-    "C4-P4": [
-        "C4-A2", "C4-M2", "C4-A1", "C4-M1", "P4-A2", "P4-M2", "P4-A1", "P4-M1",
-        "C4 A2", "C4 M2", "C4 A1", "C4 M1", "P4 A2", "P4 M2", "P4 A1", "P4 M1",
-        "C4A2", "C4M2", "C4A1", "C4M1", "P4A2", "P4M2", "P4A1", "P4M1",
-        "EEG C4-A2", "EEG C4-M2", "EEG C4-A1", "EEG C4-M1", "EEG P4-A2", "EEG P4-M2", "EEG P4-A1", "EEG P4-M1",
-        "C4-O2", "C4-T4", "Cz-P4",
-        "C3-P3", "C3-A1", "C3-A2", "P3-A1", "P3-A2",
-    ],
-    "P4-O2": [
-        "P4-A2", "P4-M2", "P4-A1", "P4-M1", "O2-A2", "O2-M2", "O2-A1", "O2-M1",
-        "P4 A2", "P4 M2", "P4 A1", "P4 M1", "O2 A2", "O2 M2", "O2 A1", "O2 M1",
-        "P4A2", "P4M2", "P4A1", "P4M1", "O2A2", "O2M2", "O2A1", "O2M1",
-        "EEG P4-A2", "EEG P4-M2", "EEG P4-A1", "EEG P4-M1", "EEG O2-A2", "EEG O2-M2", "EEG O2-A1", "EEG O2-M1",
-        "P4-T6", "Pz-O2",
-        "P3-O1", "P3-A1", "P3-A2", "O1-A1", "O1-A2",
+    # --- RIGHT HEMISPHERE (AASM) ---
+    "F4-A1": [
+        # Direct synonyms and naming variations
+        "F4-M1", "F4-A2", "F4-M2",  # other mastoid refs
+        "F4 A1", "F4 M1", "F4 A2", "F4 M2",
+        "F4A1", "F4M1", "F4A2", "F4M2",
+        "EEG F4-A1", "EEG F4-M1", "EEG F4-A2", "EEG F4-M2",
+        # Broader frontal-right substitutions
+        "Fp2-F4", "F4-C4", "F4-T4", "Fz-F4",
+        # Cross-hemisphere backups
+        "F3-A2", "F3-M2", "F3-C3",
     ],
 
-    # --- LEFT HEMISPHERE TARGETS ---
-    "F3-C3": [
-        "F3-A1", "F3-M1", "F3-A2", "F3-M2", "C3-A1", "C3-M1", "C3-A2", "C3-M2",
-        "F3 A1", "F3 M1", "F3 A2", "F3 M2", "C3 A1", "C3 M1", "C3 A2", "C3 M2",
-        "F3A1", "F3M1", "F3A2", "F3M2", "C3A1", "C3M1", "C3A2", "C3M2",
-        "EEG F3-A1", "EEG F3-M1", "EEG F3-A2", "EEG F3-M2", "EEG C3-A1", "EEG C3-M1", "EEG C3-A2", "EEG C3-M2",
-        "Fp1-F3", "F3-T3", "Fz-C3",
-        "F4-C4", "F4-A1", "F4-A2", "C4-A1", "C4-A2",
+    "C4-A1": [
+        "C4-M1", "C4-A2", "C4-M2",
+        "C4 A1", "C4 M1", "C4 A2", "C4 M2",
+        "C4A1", "C4M1", "C4A2", "C4M2",
+        "EEG C4-A1", "EEG C4-M1", "EEG C4-A2", "EEG C4-M2",
+        "F4-C4", "C4-P4", "Cz-C4",
+        "C3-A2", "C3-M2", "C3-P3",
     ],
-    "C3-P3": [
-        "C3-A1", "C3-M1", "C3-A2", "C3-M2", "P3-A1", "P3-M1", "P3-A2", "P3-M2",
-        "C3 A1", "C3 M1", "C3 A2", "C3 M2", "P3 A1", "P3 M1", "P3 A2", "P3 M2",
-        "C3A1", "C3M1", "C3A2", "C3M2", "P3A1", "P3M1", "P3A2", "P3M2",
-        "EEG C3-A1", "EEG C3-M1", "EEG C3-A2", "EEG C3-M2", "EEG P3-A1", "EEG P3-M1", "EEG P3-A2", "EEG P3-M2",
-        "C3-O1", "C3-T3", "Cz-P3",
-        "C4-P4", "C4-A1", "C4-A2", "P4-A1", "P4-A2",
+
+    "O2-A1": [
+        "O2-M1", "O2-A2", "O2-M2",
+        "O2 A1", "O2 M1", "O2 A2", "O2 M2",
+        "O2A1", "O2M1", "O2A2", "O2M2",
+        "EEG O2-A1", "EEG O2-M1", "EEG O2-A2", "EEG O2-M2",
+        # Nearby or similar occipital derivations
+        "P4-O2", "Pz-O2", "T6-O2",
+        # Cross-hemisphere fallbacks
+        "O1-A2", "O1-M2", "O1-P3",
     ],
-    "P3-O1": [
-        "P3-A1", "P3-M1", "P3-A2", "P3-M2", "O1-A1", "O1-M1", "O1-A2", "O1-M2",
-        "P3 A1", "P3 M1", "P3 A2", "P3 M2", "O1 A1", "O1 M1", "O1 A2", "O1 M2",
-        "P3A1", "P3M1", "P3A2", "P3M2", "O1A1", "O1M1", "O1A2", "O1M2",
-        "EEG P3-A1", "EEG P3-M1", "EEG P3-A2", "EEG P3-M2", "EEG O1-A1", "EEG O1-M1", "EEG O1-A2", "EEG O1-M2",
-        "P3-T5", "Pz-O1",
-        "P4-O2", "P4-A1", "P4-A2", "O2-A1", "O2-A2",
+
+    # --- LEFT HEMISPHERE (AASM) ---
+    "F3-A2": [
+        "F3-M2", "F3-A1", "F3-M1",
+        "F3 A2", "F3 M2", "F3 A1", "F3 M1",
+        "F3A2", "F3M2", "F3A1", "F3M1",
+        "EEG F3-A2", "EEG F3-M2", "EEG F3-A1", "EEG F3-M1",
+        "Fp1-F3", "F3-C3", "F3-T3", "Fz-F3",
+        "F4-A1", "F4-M1", "F4-C4",
+    ],
+
+    "C3-A2": [
+        "C3-M2", "C3-A1", "C3-M1",
+        "C3 A2", "C3 M2", "C3 A1", "C3 M1",
+        "C3A2", "C3M2", "C3A1", "C3M1",
+        "EEG C3-A2", "EEG C3-M2", "EEG C3-A1", "EEG C3-M1",
+        "F3-C3", "C3-P3", "Cz-C3",
+        "C4-A1", "C4-M1", "C4-P4",
+    ],
+
+    "O1-A2": [
+        "O1-M2", "O1-A1", "O1-M1",
+        "O1 A2", "O1 M2", "O1 A1", "O1 M1",
+        "O1A2", "O1M2", "O1A1", "O1M1",
+        "EEG O1-A2", "EEG O1-M2", "EEG O1-A1", "EEG O1-M1",
+        "P3-O1", "Pz-O1", "T5-O1",
+        "O2-A1", "O2-M1", "O2-P4",
     ],
 }
+
 
 TARGET_CHANNELS = list(CHANNEL_SUBSTITUTIONS.keys())
 
@@ -246,13 +252,13 @@ for i in range(len(onsets)):
 
         spectrogram = get_spectrogram(segment)
 
-        out_dir = f"../Data/PROCESSED_CAP_3/{FILE_BASE_NAME}"
+        out_dir = f"../Data/AASM/PROCESSED_CAP/{FILE_BASE_NAME}"
         os.makedirs(out_dir, exist_ok=True)
 
-        np.save(f"../Data/PROCESSED_CAP_3/{FILE_BASE_NAME}/{file_counter:04d}.npy", spectrogram)
+        np.save(f"../Data/AASM/PROCESSED_CAP/{FILE_BASE_NAME}/{file_counter:04d}.npy", spectrogram)
 
         # Save the corresponding label
-        with open(f"../Data/PROCESSED_CAP_3/{FILE_BASE_NAME}/{file_counter:04d}-stage.txt", "w") as f:
+        with open(f"../Data/AASM/PROCESSED_CAP/{FILE_BASE_NAME}/{file_counter:04d}-stage.txt", "w") as f:
             f.write(descriptions[i])
 
 

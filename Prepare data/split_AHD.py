@@ -10,12 +10,12 @@ import sys
 TARGET_SFREQ = 128
 
 PAIRS = [
-    ('F4-Ref', 'C4-Ref'),
-    ('C4-Ref', 'P4-Ref'),
-    ('P4-Ref', 'O2-Ref'),
-    ('F3-Ref', 'C3-Ref'),
-    ('C3-Ref', 'P3-Ref'),
-    ('P3-Ref', 'O1-Ref'),
+    ('F4-Ref', 'TP9-Ref'),
+    ('C4-Ref', 'TP9-Ref'),
+    ('O2-Ref', 'TP9-Ref'),
+    ('F3-Ref', 'TP10-Ref'),
+    ('C3-Ref', 'TP10-Ref'),
+    ('O1-Ref', 'TP10-Ref'),
 ]
 
 def get_spectrogram(raw):
@@ -94,11 +94,11 @@ for idx, row in df.iterrows():
     segment = raw.copy().crop(tmin=start, tmax=start+duration)
     spectrogram = get_spectrogram(segment)
 
-    out_dir = f"../Data/PROCESSED_AHD_2/{FILE_BASE_NAME}"
+    out_dir = f"../Data/AASM/PROCESSED_AHD/{FILE_BASE_NAME}"
     os.makedirs(out_dir, exist_ok=True)
 
-    np.save(f"../Data/PROCESSED_AHD_2/{FILE_BASE_NAME}/{file_counter:04d}.npy", spectrogram)
-    with open(f"../Data/PROCESSED_AHD_2/{FILE_BASE_NAME}/{file_counter:04d}-stage.txt", "w") as f:
+    np.save(f"../Data/AASM/PROCESSED_AHD/{FILE_BASE_NAME}/{file_counter:04d}.npy", spectrogram)
+    with open(f"../Data/AASM/PROCESSED_AHD/{FILE_BASE_NAME}/{file_counter:04d}-stage.txt", "w") as f:
         f.write(description)
     
     file_counter += 1

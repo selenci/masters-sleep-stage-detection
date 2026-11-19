@@ -36,12 +36,27 @@ SET PYTHON_EXE="C:/Users/klanc/miniforge3/envs/Magistrska/python.exe"
 @REM %PYTHON_EXE% split_nch.py 7081_19480
 @REM %PYTHON_EXE% split_nch.py 8431_21844
 
-%PYTHON_EXE% split_nch.py 11017_21778
-%PYTHON_EXE% split_nch.py 7888_20158
-%PYTHON_EXE% split_nch.py 19108_12343
-%PYTHON_EXE% split_nch.py 16957_15007
-%PYTHON_EXE% split_nch.py 20305_18697
-%PYTHON_EXE% split_nch.py 12448_21766
-%PYTHON_EXE% split_nch.py 13279_20710
-%PYTHON_EXE% split_nch.py 20305_17782
-%PYTHON_EXE% split_nch.py 2704_18973
+@REM %PYTHON_EXE% split_nch.py 11017_21778
+@REM %PYTHON_EXE% split_nch.py 7888_20158
+@REM %PYTHON_EXE% split_nch.py 19108_12343
+@REM %PYTHON_EXE% split_nch.py 16957_15007
+@REM %PYTHON_EXE% split_nch.py 20305_18697
+@REM %PYTHON_EXE% split_nch.py 12448_21766
+@REM %PYTHON_EXE% split_nch.py 13279_20710
+@REM %PYTHON_EXE% split_nch.py 20305_17782
+@REM %PYTHON_EXE% split_nch.py 2704_18973
+
+%PYTHON_EXE% split_nch.py 1630_25783
+%PYTHON_EXE% split_nch.py 11575_3391
+%PYTHON_EXE% split_nch.py 10768_298
+%PYTHON_EXE% split_nch.py 6601_13297
+%PYTHON_EXE% split_nch.py 14368_15940
+%PYTHON_EXE% split_nch.py 14869_23599
+%PYTHON_EXE% split_nch.py 9481_10345
+%PYTHON_EXE% split_nch.py 19690_18040
+%PYTHON_EXE% split_nch.py 1216_23932
+%PYTHON_EXE% split_nch.py 136_4501
+%PYTHON_EXE% split_nch.py 7612_25576
+%PYTHON_EXE% split_nch.py 6748_23851
+%PYTHON_EXE% split_nch.py 10384_18907
+%PYTHON_EXE% split_nch.py 10297_20458

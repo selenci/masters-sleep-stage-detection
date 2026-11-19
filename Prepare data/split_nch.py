@@ -33,6 +33,7 @@ def get_spectrogram(raw):
 edf_file = f"../Data/NCH Sleep DataBank/{FILE_BASE_NAME}.edf"
 tsv_file = f"../Data/NCH Sleep DataBank/{FILE_BASE_NAME}.tsv"
 raw = mne.io.read_raw_edf(edf_file, preload=True)
+print(raw.ch_names)
 raw = raw.pick(['EEG F3-M2', 'EEG F4-M1', 'EEG C3-M2', 'EEG C4-M1', 'EEG O1-M2', 'EEG O2-M1'])
 raw.filter(l_freq=0.3, h_freq=30)
 raw.resample(sfreq=TARGET_SFREQ)

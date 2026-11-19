@@ -22,61 +22,61 @@ FOR /L %%i IN (1, 1, 16) DO (
     %PYTHON_EXE% "-W ignore" %SCRIPT_PATH% "n%%i"
 )
 
-REM Category: Bruxism (brux1-brux2)
-echo.
-echo Processing Bruxism...
-FOR /L %%i IN (1, 1, 2) DO (
-    echo Running for brux%%i
-    %PYTHON_EXE% "-W ignore" %SCRIPT_PATH% "brux%%i"
-)
+@REM REM Category: Bruxism (brux1-brux2)
+@REM echo.
+@REM echo Processing Bruxism...
+@REM FOR /L %%i IN (1, 1, 2) DO (
+@REM     echo Running for brux%%i
+@REM     %PYTHON_EXE% "-W ignore" %SCRIPT_PATH% "brux%%i"
+@REM )
 
-REM Category: Insomnia (ins1-ins9)
-echo.
-echo Processing Insomnia...
-FOR /L %%i IN (1, 1, 9) DO (
-    echo Running for ins%%i
-    %PYTHON_EXE% "-W ignore" %SCRIPT_PATH% "ins%%i"
-)
+@REM REM Category: Insomnia (ins1-ins9)
+@REM echo.
+@REM echo Processing Insomnia...
+@REM FOR /L %%i IN (1, 1, 9) DO (
+@REM     echo Running for ins%%i
+@REM     %PYTHON_EXE% "-W ignore" %SCRIPT_PATH% "ins%%i"
+@REM )
 
-REM Category: Narcolepsy (narco1-narco5)
-echo.
-echo Processing Narcolepsy...
-FOR /L %%i IN (1, 1, 5) DO (
-    echo Running for narco%%i
-    %PYTHON_EXE% "-W ignore" %SCRIPT_PATH% "narco%%i"
-)
+@REM REM Category: Narcolepsy (narco1-narco5)
+@REM echo.
+@REM echo Processing Narcolepsy...
+@REM FOR /L %%i IN (1, 1, 5) DO (
+@REM     echo Running for narco%%i
+@REM     %PYTHON_EXE% "-W ignore" %SCRIPT_PATH% "narco%%i"
+@REM )
 
-REM Category: Nocturnal frontal lobe epilepsy (nfle1-nfle40)
-echo.
-echo Processing Nocturnal frontal lobe epilepsy...
-FOR /L %%i IN (1, 1, 40) DO (
-    echo Running for nfle%%i
-    %PYTHON_EXE% "-W ignore" %SCRIPT_PATH% "nfle%%i"
-)
+@REM REM Category: Nocturnal frontal lobe epilepsy (nfle1-nfle40)
+@REM echo.
+@REM echo Processing Nocturnal frontal lobe epilepsy...
+@REM FOR /L %%i IN (1, 1, 40) DO (
+@REM     echo Running for nfle%%i
+@REM     %PYTHON_EXE% "-W ignore" %SCRIPT_PATH% "nfle%%i"
+@REM )
 
-REM Category: Periodic leg movements (plm1-plm10)
-echo.
-echo Processing Periodic leg movements...
-FOR /L %%i IN (1, 1, 10) DO (
-    echo Running for plm%%i
-    %PYTHON_EXE% "-W ignore" %SCRIPT_PATH% "plm%%i"
-)
+@REM REM Category: Periodic leg movements (plm1-plm10)
+@REM echo.
+@REM echo Processing Periodic leg movements...
+@REM FOR /L %%i IN (1, 1, 10) DO (
+@REM     echo Running for plm%%i
+@REM     %PYTHON_EXE% "-W ignore" %SCRIPT_PATH% "plm%%i"
+@REM )
 
-REM Category: REM behavior disorder (rbd1-rbd22)
-echo.
-echo Processing REM behavior disorder...
-FOR /L %%i IN (1, 1, 22) DO (
-    echo Running for rbd%%i
-    %PYTHON_EXE% "-W ignore" %SCRIPT_PATH% "rbd%%i"
-)
+@REM REM Category: REM behavior disorder (rbd1-rbd22)
+@REM echo.
+@REM echo Processing REM behavior disorder...
+@REM FOR /L %%i IN (1, 1, 22) DO (
+@REM     echo Running for rbd%%i
+@REM     %PYTHON_EXE% "-W ignore" %SCRIPT_PATH% "rbd%%i"
+@REM )
 
-REM Category: Sleep-disordered breathing (sdb1-sdb4)
-echo.
-echo Processing Sleep-disordered breathing...
-FOR /L %%i IN (1, 1, 4) DO (
-    echo Running for sdb%%i
-    %PYTHON_EXE% "-W ignore" %SCRIPT_PATH% "sdb%%i"
-)
+@REM REM Category: Sleep-disordered breathing (sdb1-sdb4)
+@REM echo.
+@REM echo Processing Sleep-disordered breathing...
+@REM FOR /L %%i IN (1, 1, 4) DO (
+@REM     echo Running for sdb%%i
+@REM     %PYTHON_EXE% "-W ignore" %SCRIPT_PATH% "sdb%%i"
+@REM )
 
 echo.
 echo All tasks completed.
