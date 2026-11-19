@@ -1,0 +1,23 @@
+[
+
+    {
+        "patient_id": "SN001",
+        "age_in_days": 9000,
+        "folder_path": "../Data/PROCESSED_HAAGLANDEN/SN001"
+    },
+    {
+        "patient_id": "64_14908",
+        "age_in_days": 6067,
+        "folder_path": "../Data/PROCESSED_NCH/64_14908"
+    },
+    {
+        "patient_id": "20728_4291",
+        "age_in_days": 3426,
+        "folder_path": "../Data/PROCESSED_NCH/20728_4291"
+    },
+    {
+        "patient_id": "91_3787",
+        "age_in_days": 27,
+        "folder_path": "../Data/PROCESSED_NCH/91_3787"
+    }
+]
