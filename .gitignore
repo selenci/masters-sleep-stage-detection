@@ -1,6 +1,8 @@
 # Ignore everything in /Data
 /Data/*
 
+*.err
+/Data Downloader
 # But keep the exception file
 !/Data/Podatki o datasetih.xlsx
 
